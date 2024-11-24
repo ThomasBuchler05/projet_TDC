@@ -128,3 +128,79 @@ int new_s(Graphe *graphe, char *nom, float population, float taux_croissance, in
     graphe->sommets[graphe->ns++] =newSommet;
     return newSommet.id;
 }
+void load_g(Graphe *graphe, const char *filename) {
+    FILE *file=fopen(filename, "r");
+    if (!file){
+        perror("Erreur d'ouverture du fichier");
+        return;
+    }
+    char line[100];
+    int mode = 0;  // 0 = sommets 1 = arcs
+    while (fgets(line, sizeof(line), file)) {
+        if (line[0] == '#') {
+            mode++;
+            continue;
+        }
+
+        if (mode == 1) {  // Chargement des sommets
+            char nom[50];
+            float pop,tc;
+            int nt;
+            sscanf(line, "%s %f %f %d", nom, &pop, &tc, &nt);
+            new_s(graphe, nom, pop, tc, nt);
+        } else if (mode == 2) {  // Chargement des arcs
+            char source[50], to[50];
+            float coef;
+            sscanf(line, "%s %s %f", source, to, &coef);
+
+            int src_id = findus_char(graphe, source);
+            int dest_id = findus_char(graphe, to);
+
+            if (src_id!=-1 && dest_id!=-1) {
+                if (graphe->na >=MAXA) return;
+                arc newArc = {src_id, dest_id, coef};
+                graphe->arcs[graphe->na++] = newArc;
+            }
+        }
+    }
+    fclose(file);
+}
+int findus_char(Graphe *graphe, char* nom) {
+    for (int i=0;i<graphe->ns;i++) {
+        if (strcmp(graphe->sommets[i].nom,nom)==0) {
+            return i;
+        }
+    }
+    return -1;
+}
+int findus_int(Graphe *graphe, int nom) {
+    for (int i=0;i<graphe->ns;i++) {
+        if (graphe->sommets[i].id == nom) {
+            return i;
+        }
+    }
+    return -1;
+}
+void show_g(Graphe *graphe) {
+    printf("\n=== Liste des Sommets ===\n");
+    printf("%-5s %-15s %-10s %-10s %-15s\n", "ID", "Nom", "Population", "Croissance", "Niveau Trophique");
+    printf("------------------------------------------------------------\n");
+
+    for (int i = 0; i < graphe->ns-2; i++) {
+        Sommet s = graphe->sommets[i];
+        printf("%-5d %-15s %-10.2f %-10.2f %-15d\n",
+               s.id, s.nom, s.pop, s.tc, s.nt);
+    }
+
+    printf("\n=== Liste des Arcs ===\n");
+    printf("%-10s %-15s %-10s\n", "Source", "Destination", "Coefficient");
+    printf("---------------------------------------\n");
+
+    for (int i = 0; i < graphe->na-1; i++) {
+        arc a = graphe->arcs[i];
+        char *source_nom = graphe->sommets[a.source].nom;
+        char *dest_nom = graphe->sommets[a.to].nom;
+
+        printf("%-15s %-15s %-10.2f\n",source_nom, dest_nom, a.ci);
+    }
+}
