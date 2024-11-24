@@ -1,0 +1,64 @@
+# Sommets
+Lumiere_du_soleil 0.0 - 0
+Mineraux 0.0 - 0
+Sol 0.0 - 1
+Champignons 1000.0 0.1 1
+Bacteries 2000.0 0.01 1
+Insectes 30.0 0.02 2
+Herbes 500.0 0.3 2
+Acacia 200.0 0.2 2
+Baobab 50.0 0.15 2
+Zebre 100.0 0.05 3
+Giraffe 50.0 0.03 3
+Elephant 30.0 0.02 3
+Hippopotame 30.0 0.02 3
+Gazelle 30.0 0.02 3
+Rongeur 30.0 0.02 3
+Lion 20.0 0.01 4
+Hyene 30.0 0.02 4
+Crocodile 10.0 0.02 4
+Serpent 10.0 0.02 4
+Aigle 10.0 0.02 4
+Guepard 30.0 0.02 4
+Vautours 15.0 0.02 5
+Carcasses_animales 0.0 - 5
+
+
+# Arcs
+Lumiere_du_soleil Herbes 0.3
+Lumiere_du_soleil Acacia 0.2
+Lumiere_du_soleil Baobab 0.2
+Mineraux Herbes 0.1
+Mineraux Acacia 0.1
+Mineraux Baobab 0.1
+Champignons Sol  0.05
+Bacteries Sol 0.05
+Sol Baobab 0.05
+Sol Acacia 0.05
+Sol Herbes 0.05
+Herbes Zebre 0.4
+Herbes Elephant 0.4
+Herbes Gazelle 0.4
+Herbes Rongeur 0.4
+Herbes Hippopotame 0.4
+Acacia Giraffe 0.3
+Baobab Elephant 0.2
+Insectes Insectes 0.2
+Insectes Rongeur 0.2
+Insectes Serpent 0.2
+Insectes Aigle 0.2
+Zebre Lion 0.2
+Giraffe Lion 0.15
+Zebre Hyene 0.3
+Zebre Guepard 0.2
+Gazelle Guepard 0.3
+Gazelle Lion 0.4
+Hippopotame Crocodile 0.2
+Rongeur Serpent 0.2
+Rongeur Aigle 0.1
+Vautours Lion 0.2
+Vautours Hyene 0.3
+Carcasses_animales Vautours 0.05
+Carcasses_animales Champignons 0.05
+Carcasses_animales Bacteries 0.05
+

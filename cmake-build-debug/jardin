@@ -1,0 +1,16 @@
+#
+Fleurs 150.0 0.2 1
+Herbes 100.0 0.15 1
+Abeille 50.0 0.1 2
+Puceron 70.0 0.08 2
+Coccinelle 20.0 0.05 3
+Moineau 15.0 0.03 4
+Chat 5.0 0.02 5
+
+#
+Fleurs Abeille 0.04
+Herbes Puceron 0.03
+Puceron Coccinelle 0.05
+Abeille Moineau 0.02
+Coccinelle Moineau 0.03
+Moineau Chat 0.01
