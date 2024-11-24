@@ -114,3 +114,6 @@ void info_s(Graphe *graphe) {
         }
     }
 }
+=======
+//travialle
+>>>>>>> 485067daa9e5816c0aac11a349bee62de9458e53
