@@ -47,16 +47,16 @@ typedef struct {
 
 
 
-int new_s(Graphe graphe, charnom, float population, float taux_croissance, int niveau_trophique);// nouveau sommet
-void show_g(Graphe graphe);// affiche graph console
-void load_g(Graphegraphe, const char filename);// charge depuis fichier
-int findus_char(Graphegraphe, char* nom) ;// trouver sommet
-int findus_int(Graphe graphe,int nom) ;// trouver sommet
-void info_s(Graphegraphe); // afficher info sommet
-void evolution(Graphe graphe, int choixx);
+int new_s(Graphe *graphe, char *nom, float population, float taux_croissance, int niveau_trophique);// nouveau sommet
+void show_g(Graphe *graphe);// affiche graph console
+void load_g(Graphe *graphe, const char *filename);// charge depuis fichier
+int findus_char(Graphe *graphe, char* nom) ;// trouver sommet
+int findus_int(Graphe *graphe,int nom) ;// trouver sommet
+void info_s(Graphe *graphe); // afficher info sommet
+void evolution(Graphe *graphe, int choixx);
 int menu(Graphe graphe);
 void clearConsole();
-void lereste(Graphe graphe);
-int fdde(Graphegraphe, int sid);
+void lereste(Graphe *graphe);
+int fdde(Graphe *graphe, int sid);
 int fdds(Graphe *graphe, int sid);
 #endif //PROJET_TDC_HEAD_H
