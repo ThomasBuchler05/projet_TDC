@@ -116,5 +116,15 @@ void info_s(Graphe *graphe) {
     }
 }
 
-//travialle
->>>>>>> 485067daa9e5816c0aac11a349bee62de9458e53
+
+int new_s(Graphe *graphe, char *nom, float population, float taux_croissance, int niveau_trophique) {
+    if (graphe->ns>=MAXS) return -1;
+    Sommet newSommet;
+    strcpy(newSommet.nom,nom);
+    newSommet.pop= population;
+    newSommet.tc= taux_croissance;
+    newSommet.nt= niveau_trophique;
+    newSommet.id= graphe->ns;
+    graphe->sommets[graphe->ns++] =newSommet;
+    return newSommet.id;
+}
