@@ -56,7 +56,7 @@ void info_s(Graphe *graphe); // afficher info sommet
 void evolution(Graphe *graphe, int choixx);
 int menu(Graphe graphe);
 void clearConsole();
-void lereste(Graphe *graphe);
+void lereste(Graphe graphe);
 int fdde(Graphe *graphe, int sid);
 int fdds(Graphe *graphe, int sid);
 #endif //PROJET_TDC_HEAD_H
